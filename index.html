@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- inicia el header-->
+    <header>
+        <h1 id="title">Stocker</h1>
+    </header>
+    <!-- termina el header-->
+
+    <div class="wrapper">
+
+        <div id="grid-form">
+            <h3 id="form-title">Formulario de ingreso de Stock:</h3>
+            <form>
+            <label class="form-label" for="product-name">Nombre de producto:</label>
+            <input type="text" id="product-name-input" name="product-name-input" placeholder="Solo se permiten letras minusculas" pattern="[a-z]">
+
+            <label class="form-label" for="product-stock">Stock actual:</label>
+            <input type="number" id="product-stock-input" name="product-stock-input" placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100">
+
+            <label class="form-label" for="product-stock">Stock minimo deseado (1-100):</label>
+            <input type="number" id="product-stockMin-input" name="product-stockMin-input" placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100">
+
+            <button type="submit" id="form-submit">INGRESAR</button>
+            </form>
+        </div>
+
+        <div id="grid-stock">
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+            <div class="product">
+                <h2 class="product-title">Nombre</h2>
+                <h4 class="product-text">Stock: X</h4>
+                <h4 class="product-text">Stock minimo: X</h4>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer></footer>
+
+    <script src="main.js">
+    </script>
+</body>
+</html>
