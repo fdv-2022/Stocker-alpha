@@ -20,71 +20,54 @@
     </header>
     <!-- termina el header-->
 
-    <div class="wrapper">
+    <!-- inicia el main-->
+    <main>
 
-        <div id="grid-form">
-            <h3 id="form-title">Formulario de ingreso de Stock:</h3>
-            <form>
-            <label class="form-label" for="product-name">Nombre de producto:</label>
-            <input type="text" id="product-name-input" name="product-name-input" placeholder="Solo se permiten letras minusculas" pattern="[a-z]">
+        <!-- grid-->
+        <div class="wrapper">
 
-            <label class="form-label" for="product-stock">Stock actual:</label>
-            <input type="number" id="product-stock-input" name="product-stock-input" placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100">
+              <!-- container del form -->
+            <div id="grid-form">
+                <h3 id="form-title">Formulario de ingreso de Stock:</h3>
 
-            <label class="form-label" for="product-stock">Stock minimo deseado (1-100):</label>
-            <input type="number" id="product-stockMin-input" name="product-stockMin-input" placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100">
+                <!-- inicio FORM -->
+                <form id="stock-form">
 
-            <button type="submit" id="form-submit">INGRESAR</button>
-            </form>
+                    <label class="form-label" for="form-product-name">Nombre de producto:</label>
+                    <input type="text"
+                    id="form-product-name"
+                    name="form-product-name"
+                    placeholder="Solo se permiten letras minusculas" required>
+
+                    <label class="form-label" for="form-product-stock">Stock actual:</label>
+                    <input type="number"
+                    id="form-product-stock"
+                    name="form-product-stock"
+                    placeholder="Ingrese la cantidad de unidades en el rango 0-100" min="0" max="100" required>
+
+                    <label class="form-label" for="form-product-stockMin">Stock minimo deseado (1-100):</label>
+                    <input type="number"
+                    id="form-product-stockMin"
+                    name="form-product-stockMin"
+                    placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100" required>
+
+                    <button type="submit" id="form-submit">INGRESAR</button>
+                </form>
+            </div>
+
+            <!-- container del stock -->
+            <div id="grid-stock">
+                <!-- Este es el div que se usa como base para renderisar los productos con el script.
+                    <div class="product">
+                    <h2 class="product-title" name="product-name">Nombre</h2>
+                    <h4 class="product-text" name="product-stock">Stock: X</h4>
+                    <h4 class="product-text" name="product-stockMin">Stock minimo: X</h4>
+                     </div> -->
+            </div>
         </div>
+        <!-- cierre grid-->
 
-        <div id="grid-stock">
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-            <div class="product">
-                <h2 class="product-title">Nombre</h2>
-                <h4 class="product-text">Stock: X</h4>
-                <h4 class="product-text">Stock minimo: X</h4>
-            </div>
-
-        </div>
-
-    </div>
+    </main>
 
     <footer></footer>
 

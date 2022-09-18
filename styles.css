@@ -94,12 +94,12 @@ input {
 
 .product{
     display: inline-block;
-    margin: 5px;
-    background-color: #5E35B1;
+    margin: 4px;
+    background-color: #006064;
     border: 1px solid black;
     border-radius: 5px;
 
-    width: 195px;
+    width: 155px;
     height: 75px;
 
     color: white;
