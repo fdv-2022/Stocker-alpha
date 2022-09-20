@@ -1,30 +1,3 @@
-/* Funciona
-
-const containerDeStock = document.querySelector(`#grid-stock`);
-const button = document.querySelector(`#form-submit`)
-
-const agregarStock = (e) => {
-    e.preventDefault();
-    let nombreStock = document.querySelector(`#product-name-input`).value;
-    let stockInicial = document.querySelector(`#product-stock-input`).value;
-    let stockMinimo = document.querySelector(`#product-stockMin-input`).value;
-
-    let div = document.createElement(`div`);
-
-    div.innerHTML = `
-            <h2 class="product-title">${nombreStock}</h2>
-            <h4 class="product-text">Stock: ${stockInicial}</h4>
-            <h4 class="product-text">Stock minimo: ${stockMinimo}</h4>`;
-
-    div.className = `product`;
-
-    containerDeStock.appendChild(div);
-}
-
-button.onclick = agregarStock;
-
-*/
-
 const form = document.querySelector(`#stock-form`);
 const containerDeStock = document.querySelector(`#grid-stock`)
 
@@ -49,21 +22,16 @@ form.addEventListener(`submit`, agregarStock);
 /* Ya esta armada la forma de agregarlo ahora quiero que el boton
 me ordene alfabeticamente los elementos cada vez que se ingresa uno nuevo */
 
-let productosArray = [];
-let productos;
-let contador;
 
 const ordenarAlfabeticamente = (e) => {
     e.preventDefault();
 
-    console.log(`ordenando`)
+    let productos = document.querySelectorAll(`.product`);
+    let productosOrdenados = Array.from(productos); /* Convertimos la HTML collection en array para usar .sort */
 
-    productos = document.querySelectorAll(`.product`);
+    if(productosOrdenados.length >= 2) {
 
-    productosArray = Array.from(productos)
-
-    if(productosArray.length >= 2) {
-        productosArray.sort((a,b) => {
+        productosOrdenados.sort((a,b) => {/* Ordenamos el array.*/
             if(a.children[0].textContent > b.children[0].textContent){
                 return 1;
             }
@@ -75,16 +43,15 @@ const ordenarAlfabeticamente = (e) => {
             return 0;
             });
 
-        contador = 0;
+        /* Una vez que tenemos el array ordenado utilizamos un ciclo para
+        modificar el DOM de manera que los elementos queden ordenados segun el array.*/
 
-        productos.forEach((producto) => {
-            producto.children[0].textContent = productosArray[contador].children[0].textContent;
-            producto.children[1].textContent = productosArray[contador].children[1].textContent;
-            producto.children[2].textContent = productosArray[contador].children[2].textContent;
-
-             contador++;
-            })
+        for (let i = 0; i < productosOrdenados.length; i++){
+            containerDeStock.removeChild(productosOrdenados[i]);
+            containerDeStock.appendChild(productosOrdenados[i]);
         }
+
+    }
 
 };
 
