@@ -1,8 +1,7 @@
 const form = document.querySelector(`#stock-form`); /* Selecciono el formulario */
 const containerDeStock = document.querySelector(`#grid-stock`); /* Selecciono el contenedor donde voy a agregar los divs de los productos. */
 
-const agregarStock = (e) => { /* Tomo los datos del formulario en el momento en que se acciona el boton
-                                y renderizo el producto en base a esos datos*/
+const agregarStock = (e) => { /* Esta funcion toma los datos del formulario y los utiliza para agregar un div al DOM.*/
     e.preventDefault();
 
     let div = document.createElement(`div`);
@@ -18,4 +17,4 @@ const agregarStock = (e) => { /* Tomo los datos del formulario en el momento en 
     containerDeStock.appendChild(div);
 }
 
-form.addEventListener(`submit`, agregarStock);
+form.addEventListener(`submit`, agregarStock); /* Este evento activa la funcion anterior cuando se clickea el boton submit AGREGAR */

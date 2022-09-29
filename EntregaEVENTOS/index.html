@@ -37,19 +37,21 @@
                     <input type="text"
                     id="form-product-name"
                     name="form-product-name"
-                    placeholder="Solo se permiten letras minusculas" required>
+                    title="Solo se permiten letras"
+                    placeholder="Producto"
+                    pattern="[a-zA-Z]+" required>
 
                     <label class="form-label" for="form-product-stock">Stock actual:</label>
                     <input type="number"
                     id="form-product-stock"
                     name="form-product-stock"
-                    placeholder="Ingrese la cantidad de unidades en el rango 0-100" min="0" max="100" required>
+                    placeholder="0-100" min="0" max="100" required>
 
-                    <label class="form-label" for="form-product-stockMin">Stock minimo deseado (1-100):</label>
+                    <label class="form-label" for="form-product-stockMin">Stock minimo deseado:</label>
                     <input type="number"
                     id="form-product-stockMin"
                     name="form-product-stockMin"
-                    placeholder="Ingrese la cantidad de unidades en el rango 1-100" min="1" max="100" required>
+                    placeholder="1-100" min="1" max="100" required>
 
                     <button type="submit" id="form-submit">INGRESAR</button>
                 </form>

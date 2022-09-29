@@ -35,22 +35,3 @@ const renderStock = () => { /*Renderizo los productos utilizando el array de obj
 }
 
 renderStock();
-
-
-/*array.sort((a,b) => {/* Ordenamos el array.
-if(a.children[0].textContent > b.children[0].textContent){
-    return 1;
-}
-
-if(b.children[0].textContent > a.children[0].textContent){
-    return -1;
-}
-
-return 0;
-});
-
-for (let i = 0; i < productosOrdenados.length; i++){
-        containerDeStock.removeChild(productosOrdenados[i]);
-        containerDeStock.appendChild(productosOrdenados[i]);
-    }
-*/
