@@ -26,11 +26,43 @@
         <!-- grid-->
         <div class="wrapper">
 
-              <!-- container del form -->
-            <div id="grid-form">
-                <h3 id="form-title">Formulario de ingreso de Stock:</h3>
+            <!--Todos los container de aca hasta el stock solo se va a mostrar 1 el resto van a estar ocultos.-->
 
-                <!-- inicio FORM -->
+            <!-- container Menu Inicial-->
+
+            <div id="grid-inicio" class="menu">
+                <form id="username-form">
+                    <label id="username-input-label" for="username-input">Bienvenido, ingrese su nombre de usuario.   </label>
+
+                    <input type="text"
+                    id="username-input" name="username-input"
+                    placeholder="e.g Agustin"
+                    pattern="[a-zA-Z]+"
+                    required/>
+
+                    <button type="submit" id="username-input-btn">Confirmar</button>
+                </form>
+            </div>
+
+            <!-- container Menu-->
+
+            <div id="grid-menu" class="menu hidden">
+                <h1 id="menu-title">Bienvenido usuario.</h1>
+                <h2 id="menu-subtitle">¿Que desea realizar?</h2>
+                <ul id="menu-list">
+                    <li class="menu-option">
+                        <button id="menu-option1">Agregar nuevo producto</button>
+                    </li>
+                    <li class="menu-option">
+                        <button id="menu-option2">Eliminar producto</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- container PRIMER OPCION DEL MENU -->
+            <div id="grid-menu-1" class="menu hidden">
+                <h3 id="form-title">Formulario de ingreso de Stock:</h3>
+                     <!--FORM -->
                 <form id="stock-form">
 
                     <label class="form-label" for="form-product-name">Nombre de producto:</label>
@@ -53,19 +85,23 @@
                     name="form-product-stockMin"
                     placeholder="1-100" min="1" max="100" required>
 
-                    <button type="submit" id="form-submit">INGRESAR</button>
+                    <div id="flex-buttons">
+                        <button type="submit" id="form-submit">INGRESAR</button>
+                        <button type="button" id="form-return">REGRESAR</button>
+                    </div>
                 </form>
+            </div>
+            <!-- TERMINA PRIMER OPCION DEL MENU -->
+
+            <!-- container SEGUNDA OPCION DEL MENU -->
+
+            <div id="grid-menu-2" class="menu hidden">
+                <p>Clickee el boton <span class="red">X</span> del producto que desea eliminar del stock.</p>
+                <button type="button" id="menu2-return">REGRESAR</button>
             </div>
 
             <!-- container del stock -->
-            <div id="grid-stock">
-                <!-- Este es el div que se usa como base para renderisar los productos con el script.
-                    <div class="product">
-                    <h2 class="product-title" name="product-name">Nombre</h2>
-                    <h4 class="product-text" name="product-stock">Stock: X</h4>
-                    <h4 class="product-text" name="product-stockMin">Stock minimo: X</h4>
-                     </div> -->
-            </div>
+            <div id="grid-stock"></div>
         </div>
         <!-- cierre grid-->
 
@@ -76,4 +112,12 @@
     <script src="main.js">
     </script>
 </body>
+<!-- Este es el prototipo de los productos.
+<div class="product">
+<h2 class="product-title" name="product-name">Nombre </h2>
+<h4 class="product-text" name="product-stock">Stock: <span>X</span></h4>
+<h4 class="product-text" name="product-stock"></h4>
+<button type="button" class="remove-btn">X</button>
+</div>
+-->
 </html>
