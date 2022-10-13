@@ -1,8 +1,5 @@
 /*Inicializacion de variables que se guardan en el localStorage*/
-
-/* MODIFICACION Si no hay un stock guardado en el localStorage tomo el stock inicial de mi JSON.*/
 let stock = JSON.parse(localStorage.getItem('stockStorage')) || [];
-
 let username = localStorage.getItem('username') || ''; /* Validacion del username.*/
 
 /* Formularios */
@@ -16,14 +13,17 @@ const menu = document.getElementById('grid-menu'); /*Menu Principal*/
 const menu1 = document.getElementById('grid-menu-1'); /*Menu Principal-1*/
 const menu2 = document.getElementById('grid-menu-2'); /*Menu Principal-2*/
 const menu3 = document.getElementById('grid-menu-3'); /*Menu Principal-3*/
+const menu4 = document.getElementById('grid-menu-4'); /*Menu Principal-4*/
 
 /*Botones*/
 const btnMenu1 = document.getElementById('menu-option1'); /*Primer opcion del menu*/
 const btnMenu2 = document.getElementById('menu-option2'); /*Segunda opcion del menu*/
 const btnMenu3 = document.getElementById('menu-option3'); /* Tercera opcion del menu */
+const btnMenu4 = document.getElementById('menu-option4'); /* Tercera opcion del menu */
 const btnReturnMenu1 = document.getElementById('form-return'); /*Return primer opcion*/
 const btnReturnMenu2 = document.getElementById('menu2-return'); /*Return segunda opcion*/
 const btnReturnMenu3 = document.getElementById('menu3-return'); /*Return tercera opcion */
+const btnReturnMenu4 = document.getElementById('menu4-return'); /*Return tercera opcion */
 
 /*Funciones Auxiliares */
 class objetoStock { /*Con esta constructora genero los objetos que se guardan en "stock".*/
@@ -52,6 +52,45 @@ const renderizarStock = () => {
             div.className = 'product';
             containerDeStock.appendChild(div);
             });
+}
+
+const productButtonShower = (buttonClass, text) => {
+    containerDeStock.childNodes.forEach((item) =>{
+        item.children[2].className = `${buttonClass}`;
+        item.children[2].textContent = `${text}`;
+    })
+}
+
+const productButtonHider = () => {
+    containerDeStock.childNodes.forEach((item) =>{
+        item.children[2].className = "hidden";
+    })
+}
+
+const redToast = (text) => {
+    Toastify({
+        text: `${text}`,
+        gravity: 'top',
+        position: 'right',
+        timer: 3000,
+        style: {
+            background: '#bb010b',
+            'border-radius':  '15px'
+            }
+    }).showToast()
+}
+
+const greenToast = (text) => {
+    Toastify({
+        text: `${text}`,
+        gravity: 'top',
+        position: 'right',
+        timer: 3000,
+        style: {
+            background: '#60d394',
+            'border-radius':  '15px'
+          }
+    }).showToast()
 }
 /*Fin de Funciones Auxiliares */
 
@@ -100,22 +139,12 @@ const loadInitialStock = async () => {
     });
     stock = stockInicial;
     localStorage.setItem("stockStorage", JSON.stringify(stock));
-
-    Toastify({
-        text: `Se ha cargado el stock inicial por defecto.`,
-        gravity: 'top',
-        position: 'right',
-        timer: 3000,
-        style: {
-            background: '#60d394',
-            'border-radius':  '15px'
-          }
-    }).showToast()
+    greenToast('Se ha cargado el stock inicial por defecto.');
 }
 
-/* Funciones de cambio de instancias del menu. */
+/* Funciones de CAMBIO DE INSTANCIAS del menu. */
 
-/* OPCION1 */
+/* OPCION 1 */
 const menuOpcion1 = () => {
     menu.className = "menu hidden";
     menu1.className = "menu";
@@ -126,7 +155,7 @@ const menuReturn1 = () => {
     menu.className = "menu";
 }
 
-/* OPCION2 */
+/* OPCION 2 */
 const menuOpcion2 = () => {
     if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
         Toastify({
@@ -144,17 +173,17 @@ const menuOpcion2 = () => {
     menu.className = "menu hidden";
     menu2.className = "menu";
     containerDeStock.addEventListener(`click`, productDelete); /* Este es el event listener que permite la funcionalidad de esta opcion.*/
-    removeButtonGenerator();  /* Mostramos los botones que vamos a usar en esta opcion */
+    productButtonShower('remove-btn', 'X');  /* Mostramos los botones que vamos a usar en esta opcion */
 }
 
 const menuReturn2 = () => { /* Esta tiene una funcionalidad extra, hace desaparecer los botones para eliminar productos.*/
     menu2.className = "menu hidden";
     menu.className = "menu";
     containerDeStock.removeEventListener(`click`, productDelete); /* Eliminamos el event listener para que no se pise con otras funcionalidades*/
-    removeButtonHider();
+    productButtonHider();
 }
 
-/* OPCION3 */
+/* OPCION 3 */
 const menuOpcion3 = () => {
     if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
         Toastify({
@@ -169,19 +198,49 @@ const menuOpcion3 = () => {
         }).showToast()
         return;
     }
+
     menu.className = "menu hidden";
     menu3.className = "menu";
-    modifyButtonAdd();
-    containerDeStock.addEventListener('click', stockAdd);
+    productButtonShower('modify-btn', '+');
+    containerDeStock.addEventListener('click', stockModify);
 }
 
 const menuReturn3 = () => {
     menu3.className = "menu hidden";
     menu.className = "menu";
-    console.log(`click`);
-    modifyButtonRemove();
-    containerDeStock.removeEventListener('click', stockAdd);
+    productButtonHider();
+    containerDeStock.removeEventListener('click', stockModify);
 }
+
+/* OPCION 4 */
+const menuOpcion4 = () => {
+    if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
+    Toastify({
+        text: `STOCK VACIO: Ingrese algun producto.`,
+        gravity: 'top',
+        position: 'right',
+        timer: 3000,
+        style: {
+            background: '#bb010b',
+            'border-radius':  '15px'
+          }
+    }).showToast()
+    return;
+    }
+
+    menu.className = "menu hidden";
+    menu4.className = "menu";
+    productButtonShower('modify-btn2', '-');
+    containerDeStock.addEventListener('click', stockModify);
+}
+
+const menuReturn4 = () => {
+    menu4.className = "menu hidden";
+    menu.className = "menu";
+    productButtonHider();
+    containerDeStock.removeEventListener('click', stockModify);
+}
+
 
 /* Fin cambio de Instancias. */
 
@@ -192,17 +251,7 @@ const agregarStock = (e) => {
 
     if(stock.find(element => element.name === form.children[1].value.toUpperCase())){
         /* Si ya existe en el stock un producto con el mismo nombre termino la funcion. */
-        Toastify({
-            text: `${form.children[1].value.toUpperCase()} ya forma parte del stock`,
-            gravity: 'top',
-            position: 'right',
-            timer: 3000,
-            style: {
-                background: '#bb010b',
-                'border-radius':  '15px'
-              }
-        }).showToast()
-
+        redToast(`${form.children[1].value.toUpperCase()} ya forma parte del stock`);
         form.reset();
         return;
     }
@@ -229,37 +278,16 @@ const agregarStock = (e) => {
         renderizarStock(); /*Lo muestro ordenado;*/
     }
 
-    Toastify({
-        text: `${form.children[1].value.toUpperCase()} se agrego exitosamente al stock.`,
-        gravity: 'top',
-        position: 'right',
-        timer: 3000,
-        style: {
-            background: '#72cc50',
-            'border-radius':  '15px'
-          }
-    }).showToast()
-
+    greenToast(`${form.children[1].value.toUpperCase()} se agrego exitosamente al stock.`)
     localStorage.setItem("stockStorage", JSON.stringify(stock)); /* Guardo el stock en el localStorage*/
     form.reset();
 }
 
 /* OPCION 2 */
-const removeButtonGenerator = () => { /*Esta funcion hace aparecer los botones que permiten eliminar los productos.*/
-    containerDeStock.childNodes.forEach((item) =>{
-        item.children[2].className = "remove-btn";
-        item.children[2].textContent = 'X';
-    })
-}
-
-const removeButtonHider = () => {/*Esta funcion hace aparecer los botones que permiten eliminar los productos.*/
-    containerDeStock.childNodes.forEach((item) =>{
-    item.children[2].className = "hidden";
-})
-}
-
 const productDelete = (event) => {
-    if(event.target.className === 'remove-btn'){ /* Me aseguro que esten tocando el boton que quiero que toquen.*/
+    if(event.target.className !== 'remove-btn'){ /* Me aseguro que el click sea sobre el boton que quiero.*/
+        return
+    }
 
     /*Utilizo una alerta de la libreria para confirmar la elmininacion del objeto del stock.*/
     Swal.fire({
@@ -285,34 +313,80 @@ const productDelete = (event) => {
             )
         }
       })
-    }
+
 }
 
 /* OPCION 3 */
-const modifyButtonAdd = () => {
-    containerDeStock.childNodes.forEach((item) =>{
-        item.children[2].className = 'modify-btn';
-        item.children[2].textContent = '+';
-    })
-}
-
-const modifyButtonRemove= () => {
-    containerDeStock.childNodes.forEach((item) =>{
-        item.children[2].className = 'hidden';
-    })
-}
-
-const stockAdd = (event) => {
-    console.log(`click`);
-    if(event.target.className === 'modify-btn'){
-        console.log(event.target.parentNode.children[0].textContent);
-        let index = stock.findIndex((element) => element.name === event.target.parentNode.children[0].textContent);
-        console.log(index);
+const stockModify = (event) => {
+    if(event.target.className !== 'modify-btn' && event.target.className !== 'modify-btn2'){ /*Chequeo que el click sea sobre el boton para modificar.*/
+    return;
     }
+
+    /* Paso el evento y la modificacion a la funcion que realiza la modificacion */
+    event.target.className === 'modify-btn'
+    ? stockAdd(event , Number(document.getElementById('product-add-input').value))
+    : stockRemove(event , -Number(document.getElementById('product-remove-input').value))
 }
+
+const stockAdd = (event, value) => {
+    if(document.getElementById('product-add-input').value == 0){ /*Valido el valor de la modifcacion.*/
+    Toastify({
+        text: `Debe ingresar un numero distinto de 0.`,
+        gravity: 'top',
+        position: 'right',
+        timer: 3000,
+        style: {
+            background: '#bb010b',
+            'border-radius':  '15px'
+            }
+    }).showToast()
+    return;
+    }
+
+    let index = stock.findIndex((element) => element.name === event.target.parentNode.children[0].textContent);
+
+    stock[index].stock = Number(stock[index].stock)
+    stock[index].stock += value;
+    event.target.parentNode.children[1].children[0].textContent = stock[index].stock;
+
+    stock[index].stock >= stock[index].stockMinimo
+    ? event.target.parentNode.children[1].children[0].className = 'green'
+    : event.target.parentNode.children[1].children[0].className = 'red';
+
+    localStorage.setItem("stockStorage", JSON.stringify(stock)); /* Guardo el localStorage */
+}
+
+/* OPCION 4 */
+
+const stockRemove = (event, value) => {
+    if(document.getElementById('product-remove-input').value == 0){ /*Valido el valor de la modifcacion.*/
+    redToast('Debe ingresar un numero distinto de 0');
+    return;
+    }
+
+    let index = stock.findIndex((element) => element.name === event.target.parentNode.children[0].textContent);
+
+    if(Number(stock[index].stock)+value < 0){
+        redToast('Esta intentando consumir mas unidades de las existentes en el stock.');
+        return;
+    }
+
+    /* Trabajo sobre el array de objetos con el index obtenido*/
+    stock[index].stock = Number(stock[index].stock);
+    stock[index].stock += value;
+
+    /* Modifico el DOM */
+    event.target.parentNode.children[1].children[0].textContent = stock[index].stock;
+    stock[index].stock >= stock[index].stockMinimo
+    ? event.target.parentNode.children[1].children[0].className = 'green'
+    : event.target.parentNode.children[1].children[0].className = 'red';
+
+    localStorage.setItem("stockStorage", JSON.stringify(stock)); /* Guardo el localStorage */
+
+}
+
+
 /* FIN FUNCIONES */
-
-
 
 /* Render Inicial*/
 renderInicial();
@@ -325,6 +399,7 @@ usernameForm.addEventListener(`submit`, loadInitialStock);
 btnMenu1.addEventListener(`click`, menuOpcion1);
 btnMenu2.addEventListener(`click`, menuOpcion2);
 btnMenu3.addEventListener(`click`, menuOpcion3);
+btnMenu4.addEventListener(`click`, menuOpcion4);
 
 /* Event listeners de la primer opcion del menu principal*/
 form.addEventListener(`submit`, agregarStock);
@@ -335,3 +410,6 @@ btnReturnMenu2.addEventListener(`click`, menuReturn2);
 
 /* Event listeners de la tercera opcion del menu principal*/
 btnReturnMenu3.addEventListener(`click`, menuReturn3);
+
+/* Event listeners de la cuarta opcion del menu principal*/
+btnReturnMenu4.addEventListener(`click`, menuReturn4);

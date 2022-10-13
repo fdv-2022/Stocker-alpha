@@ -64,6 +64,9 @@
                     <li class="menu-option">
                         <button id="menu-option3" class="menu-option-btn">Ingresar compra</button>
                     </li>
+                    <li class="menu-option">
+                        <button id="menu-option4" class="menu-option-btn">Ingresar consumo</button>
+                    </li>
                 </ul>
             </div>
 
@@ -94,8 +97,8 @@
                     placeholder="1-100" min="1" max="100" required>
 
                     <div id="flex-buttons">
-                        <button type="submit" id="form-submit">INGRESAR</button>
-                        <button type="button" id="form-return">REGRESAR</button>
+                        <button type="submit" id="form-submit" class="button">INGRESAR</button>
+                        <button type="button" id="form-return" class="button">REGRESAR</button>
                     </div>
                 </form>
             </div>
@@ -105,7 +108,7 @@
 
             <div id="grid-menu-2" class="menu hidden">
                 <p>Clickee el boton <span class="red">X</span> del producto que desea eliminar del stock.</p>
-                <button type="button" id="menu2-return">REGRESAR</button>
+                <button type="button" id="menu2-return" class="button">REGRESAR</button>
             </div>
             <!-- TERMINA SEGUNDA OPCION DEL MENU -->
 
@@ -113,16 +116,28 @@
             <div id="grid-menu-3" class="menu hidden">
                 <label class="form-label" for="product-add">Seleccione la cantidad de unidades que desea agregar del producto.</label>
                     <input type="number"
-                    id="product-add"
-                    name="product-add"
-                    placeholder="1-100" min="1" max="100" required>
+                    id="product-add-input"
+                    name="product-add-input"
+                    placeholder="1-100"/>
                 <p>Una vez seleccionada la cantidad clickee en el boton <span class="green">+</span> del producto que desea modificar.</p>
-                <button type="button" id="menu3-return">REGRESAR</button>
+                <button type="button" id="menu3-return" class="button">REGRESAR</button>
             </div>
             <!-- TERMINA TERCERA OPCION DEL MENU -->
 
+            <!-- container CUARTA OPCION DEL MENU -->
+            <div id="grid-menu-4" class="menu hidden">
+                <label class="form-label" for="product-remove">Seleccione la cantidad de unidades que desea eliminar del producto.</label>
+                    <input type="number"
+                    id="product-remove-input"
+                    name="product-remove-input"
+                    placeholder="1-100"/>
+                <p>Una vez seleccionada la cantidad clickee en el boton <span class="red">-</span> del producto que desea modificar.</p>
+                <button type="button" id="menu4-return" class="button">REGRESAR</button>
+            </div>
+            <!-- TERMINA CUARTA OPCION DEL MENU -->
+
             <!-- container del stock -->
-            <div id="grid-stock"></div>
+            <div id="grid-stock" class="grid-stock"></div>
         </div>
         <!-- cierre grid-->
 

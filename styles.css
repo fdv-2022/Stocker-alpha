@@ -1,8 +1,11 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-size: cover;
     opacity: 0.5;
-    margin: 0px;
-    padding: 0px;
     font-family: 'Source Sans Pro', sans-serif;
 
     color:  black;
@@ -10,8 +13,6 @@ body {
 }
 
 header {
-    padding: 0px;
-    margin: 0px;
     text-shadow: 2px 2px 2px black;
     text-align: center;
 
@@ -20,7 +21,6 @@ header {
 }
 
 #title {
-    margin: 0px;
     padding: 40px;
     color: white;
     font-size: 50px;
@@ -31,6 +31,10 @@ header {
 
 .hidden {
     display: none;
+}
+
+button {
+    cursor: pointer;
 }
 
 /* STYLE INPUTS */
@@ -76,12 +80,21 @@ input {
     border-radius: 10px;
     background-color: #E0F7FA;
     padding: 3px;
+
+    overflow:scroll;
+    overflow-x:hidden;
+
+    display: grid;
+    grid-template-columns: repeat(7, 130px);
+    grid-auto-rows: 90px;
+    gap: 10px;
+    justify-content: center;
 }
 
 
-/*Arrancan los styles de los menus */
+/*Arrancan los styles del body*/
 
-/* STYLE FORMULARIO */
+/* STYLE FORMULARIO 1ER OPCION MENU */
 
 form {
     text-align: center;
@@ -104,116 +117,9 @@ form {
     width: 60%;
 }
 
-#form-submit, #form-return{
-    margin-top: 15px;
-    background-color: #311B92;
-    color: white;
-    font-size: 15px;
-    padding: 5px 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
+/* ----MENUS---- */
 
-#form-submit:hover, #form-return:hover {
-    font-size: 16px;
-    background-color: #006064;
-}
-
-/* STYLE PRODUCTOS */
-
-.product{
-    display: inline-block;
-    margin: 5px;
-    padding: 3px;
-    background-color: #006064;
-    border: 1px solid black;
-    border-radius: 5px;
-
-    width: 148px;
-    height: 90px;
-
-    color: white;
-    text-align: center;
-}
-
-.product > h4 {
-    margin: 0;
-    padding: 0;
-}
-
-.remove-btn {
-    float: center;
-    width: 25px;
-    height: 25px;
-    padding: 2px;
-    margin-top: 5px;
-
-    border: 2px solid black;
-    border-radius: 50%;
-
-    background-color: #311B92;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
-}
-
-.remove-btn:hover {
-    color: #bb010b;
-}
-
-.modify-btn {
-    float: center;
-    width: 28px;
-    height: 28px;
-    padding: 0 0 13px 0;
-    margin-top: 3px;
-
-    border: 2px solid black;
-    border-radius: 50%;
-
-    background-color: #311B92;
-    color: white;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
-}
-
-.modify-btn:hover {
-    color: #60d394;
-}
-
-.product-title {
-    font-size: 23px;
-    margin: 5px 0 0 0;
-    font-weight: 600;
-}
-.product-text {
-    margin: 5px 0;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-.green {
-    color: #60d394;
-    font-weight: bold;
-}
-
-.red {
-    color: #bb010b;
-    font-weight: bold;
-}
-
-footer{
-    padding: 0px;
-    margin: 0px;
-    height: 187px;
-    background-color: #311B92;
-    opacity: 0.8;
-}
-
-/*STYLE MENU INICIAL */
+/* ----MENU INICIAL---- */
 #username-input-label {
     display: block;
     text-align: center;
@@ -247,13 +153,15 @@ footer{
     margin-left: -40px;
     width: 400px;
     margin: auto;
+
 }
 
 .menu-option-btn {
-    display: block;
-    margin: 15px 0 15px 60px;
+    display: inline-block;
+    margin: 15px auto 0px auto;
     padding: 5px 10px;
     width: 60%;
+    align-items: center;
 
     background-color:#006064;
     color: white;
@@ -261,6 +169,8 @@ footer{
 
     border: 1px solid black;
     border-radius: 5px;
+
+    transition: all 0.2s;
 }
 
 .menu-option-btn:hover {
@@ -268,41 +178,133 @@ footer{
     font-size: 17px;
 }
 
-
 /* STYLE OPCION 2 MENU */
 #menu2-return {
     display: block;
-    margin: 15px auto 0 auto;
-    background-color: #311B92;
-    color: white;
-    font-size: 15px;
-    padding: 5px 10px;
-    border: 1px solid black;
-    border-radius: 5px;
 }
 
-#menu2-return:hover {
-    font-size: 16px;
-    background-color: #006064;
-}
-
-#grid-menu-2 p{
+#grid-menu-2 p {
     display: block;
     text-align: center;
     padding: 40px 0 20px 0;
     font-size: 18px;
 }
 
-/* STYLE OPCION 2 MENU */
+/* STYLE OPCION 3 - 4 MENU */
 
-#grid-menu-3 {
+#grid-menu-3, #grid-menu-4 {
     text-align: center;
     padding: 40px 50px 20px 50px;
     font-size: 18px;
 }
 
-#menu3-return {
-    display: block;
+/* STYLE PRODUCTOS;*/
+
+.product{
+    display: inline-block;
+    background-color: #006064;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 130px;
+    height: 90px;
+
+    color: white;
+    text-align: center;
+}
+
+.product > h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.remove-btn {
+    float: center;
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    margin-top: 5px;
+
+    border: 2px solid black;
+    border-radius: 50%;
+
+    background-color: #311B92;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+
+    transition: all 0.2s;
+}
+
+.remove-btn:hover, .modify-btn2:hover  {
+    color: #bb010b;
+    box-shadow: 0px 0px 10px black;
+}
+
+.modify-btn, .modify-btn2 {
+    float: center;
+    width: 28px;
+    height: 28px;
+    padding: 0 0 13px 0;
+    margin-top: 3px;
+
+    border: 2px solid black;
+    border-radius: 50%;
+
+    background-color: #311B92;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    line-height: 130%;
+
+    transition: all 0.2s;
+}
+
+.modify-btn{
+    line-height: 140%;
+}
+
+
+.modify-btn:hover {
+    color: #60d394;
+    box-shadow: 0px 0px 10px black;
+}
+
+.product-title {
+    font-size: 23px;
+    margin: 5px 0 0 0;
+    font-weight: 600;
+}
+.product-text {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* CLASES AUXILIARES Y FOOTER */
+
+.green {
+    color: #60d394;
+    font-weight: bold;
+}
+
+.red {
+    color: #bb010b;
+    font-weight: bold;
+}
+
+footer{
+    padding: 0px;
+    margin: 0px;
+    height: 187px;
+    background-color: #311B92;
+    opacity: 0.8;
+}
+
+.button {
     margin: 15px auto 0 auto;
     background-color: #311B92;
     color: white;
@@ -310,9 +312,10 @@ footer{
     padding: 5px 10px;
     border: 1px solid black;
     border-radius: 5px;
+    transition: all 0.2s;
 }
 
-#menu3-return:hover {
-    font-size: 16px;
+.button:hover {
     background-color: #006064;
+    font-size: 18px;
 }
