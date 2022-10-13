@@ -1,0 +1,41 @@
+[
+    {"name":"ACEITE",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"BANANA",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"HARINA",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"HUEVO",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"JAMON",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"LECHUGA",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"MANZANA",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"PAN",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"QUESO",
+    "stock":"0",
+    "stockMinimo":"10"},
+
+    {"name":"TOMATE",
+    "stock":"0",
+    "stockMinimo":"10"}
+]
