@@ -158,7 +158,16 @@ const menuReturn1 = () => {
 /* OPCION 2 */
 const menuOpcion2 = () => {
     if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
-        redToast(`STOCK VACIO: Ingrese algun producto.`)
+        Toastify({
+            text: `STOCK VACIO: Ingrese algun producto.`,
+            gravity: 'top',
+            position: 'right',
+            timer: 3000,
+            style: {
+                background: '#bb010b',
+                'border-radius':  '15px'
+              }
+        }).showToast()
         return;
     }
     menu.className = "menu hidden";
@@ -177,7 +186,16 @@ const menuReturn2 = () => { /* Esta tiene una funcionalidad extra, hace desapare
 /* OPCION 3 */
 const menuOpcion3 = () => {
     if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
-        redToast(`STOCK VACIO: Ingrese algun producto.`)
+        Toastify({
+            text: `STOCK VACIO: Ingrese algun producto.`,
+            gravity: 'top',
+            position: 'right',
+            timer: 3000,
+            style: {
+                background: '#bb010b',
+                'border-radius':  '15px'
+              }
+        }).showToast()
         return;
     }
 
@@ -197,7 +215,16 @@ const menuReturn3 = () => {
 /* OPCION 4 */
 const menuOpcion4 = () => {
     if(stock.length === 0){/*Si no hay productos que eliminar muestro un alerta y salgo de la funcion */
-    redToast(`STOCK VACIO: Ingrese algun producto.`)
+    Toastify({
+        text: `STOCK VACIO: Ingrese algun producto.`,
+        gravity: 'top',
+        position: 'right',
+        timer: 3000,
+        style: {
+            background: '#bb010b',
+            'border-radius':  '15px'
+          }
+    }).showToast()
     return;
     }
 

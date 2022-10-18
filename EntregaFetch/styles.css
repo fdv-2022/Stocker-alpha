@@ -16,14 +16,14 @@ header {
     text-shadow: 2px 2px 2px black;
     text-align: center;
 
-    height: 20%;
+    height: 150px;
     background-color: #311B92;
 }
 
 #title {
-    padding: 2.2vh 2.2vw;
+    padding: 40px;
     color: white;
-    font-size: 4vw;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -41,20 +41,18 @@ button {
 
 input {
     display: block;
-    width: 60%;
-    height: 2.5vh;
-    padding: 0.5vh 0.5vw;
-    margin: 0.75vh auto;
+    width: 250px;
+    padding: 10px;
+    margin: 15px auto;
 
     background-color: #006064;
     color: white;
-    border-radius: 0.5vw;
+    border-radius: 5px;
 }
 
 ::placeholder {
      opacity: 0.7;
      color: white;
-     font-size: 1vw;
 }
 
 /*Arrancan los styles del GRID*/
@@ -62,13 +60,13 @@ input {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(7, 10vh);
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .menu {
     margin: 0 3px 0 2px;
+    grid-row: 1/7;
     grid-column: 1;
-    grid-row: 1/8;
     border: 2px solid #0097A7;
     border-radius: 10px;
     background-color: #E0F7FA;
@@ -76,7 +74,7 @@ input {
 
 #grid-stock {
     grid-column: 2/4;
-    grid-row: 1/8;
+    grid-row: 1/7;
     margin: 0 0 0 2px;
     border: 2px solid #0097A7;
     border-radius: 10px;
@@ -87,10 +85,9 @@ input {
     overflow-x:hidden;
 
     display: grid;
-    grid-template-columns: repeat(7, 8vw);
-    grid-auto-rows: 12vh;
-    row-gap: 1.5vh;
-    column-gap: 1vw;
+    grid-template-columns: repeat(7, 130px);
+    grid-auto-rows: 90px;
+    gap: 10px;
     justify-content: center;
 }
 
@@ -104,13 +101,13 @@ form {
 }
 
 #form-title {
-    font-size: 2vw;
+    font-size: 35px;
     text-align: center;
-    margin: 6vh 0 4vh 0;
+    margin: 60px 0 40px 0;
 }
 
 .form-label {
-    font-size: 1.5vw;
+    font-size: 25px;
 }
 
 #flex-buttons{
@@ -118,7 +115,6 @@ form {
     display: flex;
     justify-content: space-around;
     width: 60%;
-    font-size: 1vw;
 }
 
 /* ----MENUS---- */
@@ -148,33 +144,28 @@ form {
 
 #grid-menu {
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 30px;
 }
 
 #menu-list {
     display: block;
     list-style: none;
-    width: 70%;
+    margin-left: -40px;
+    width: 400px;
     margin: auto;
-}
 
-#menu-title {
-    font-size: 2vw;
-}
-#menu-subtitle {
-    font-size: 1.8vw;
 }
 
 .menu-option-btn {
     display: inline-block;
-    margin: 2vh auto 0px auto;
-    padding: 0.8vh 0.8vw;
-    width: 65%;
+    margin: 15px auto 0px auto;
+    padding: 5px 10px;
+    width: 60%;
     align-items: center;
 
     background-color:#006064;
     color: white;
-    font-size: 1vw;
+    font-size: 15px;
 
     border: 1px solid black;
     border-radius: 5px;
@@ -184,7 +175,7 @@ form {
 
 .menu-option-btn:hover {
     background-color:  #311B92;
-    font-size: 1.2vw;
+    font-size: 17px;
 }
 
 /* STYLE OPCION 2 MENU */
@@ -192,20 +183,19 @@ form {
     display: block;
 }
 
-.p1 {
+#grid-menu-2 p {
     display: block;
     text-align: center;
-    padding: 8vh 0 2vh 0;
-    font-size: 1.3vw;
+    padding: 40px 0 20px 0;
+    font-size: 18px;
 }
 
 /* STYLE OPCION 3 - 4 MENU */
 
 #grid-menu-3, #grid-menu-4 {
     text-align: center;
-    padding: 8vh 3vw 4vh 4vw;
-    font-size: 1.3vw;
-    line-height: 5vh;
+    padding: 40px 50px 20px 50px;
+    font-size: 18px;
 }
 
 /* STYLE PRODUCTOS;*/
@@ -215,7 +205,9 @@ form {
     background-color: #006064;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 0.7vh;
+
+    width: 130px;
+    height: 90px;
 
     color: white;
     text-align: center;
@@ -228,10 +220,10 @@ form {
 
 .remove-btn {
     float: center;
-    width: 1.8vw;
-    height: 1.8vw;
-    padding: 0.2vw;
-    margin-top: 0.5vh;
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    margin-top: 5px;
 
     border: 2px solid black;
     border-radius: 50%;
@@ -239,7 +231,6 @@ form {
     background-color: #311B92;
     color: white;
     text-align: center;
-    font-size: 0.7vw;
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
 
@@ -248,15 +239,15 @@ form {
 
 .remove-btn:hover, .modify-btn2:hover  {
     color: #bb010b;
-    box-shadow: 0px 0px 1.5vw black;
+    box-shadow: 0px 0px 10px black;
 }
 
 .modify-btn, .modify-btn2 {
     float: center;
-    width: 1.8vw;
-    height: 1.8vw;
-    padding: 0 0 1.1vw 0;
-    margin-top: 0.5vh;
+    width: 28px;
+    height: 28px;
+    padding: 0 0 13px 0;
+    margin-top: 3px;
 
     border: 2px solid black;
     border-radius: 50%;
@@ -264,17 +255,12 @@ form {
     background-color: #311B92;
     color: white;
     text-align: center;
-    font-size: 1vw;
+    font-size: 18px;
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
-    line-height: 1.5vw;
+    line-height: 130%;
 
     transition: all 0.2s;
-}
-
-.modify-btn{
-    line-height: normal;
-    padding-top: 0.15vw;
 }
 
 .modify-btn{
@@ -288,14 +274,14 @@ form {
 }
 
 .product-title {
-    font-size: 1.3vw;
-    margin: 0.5vh 0 0 0;
+    font-size: 23px;
+    margin: 5px 0 0 0;
     font-weight: 600;
 }
 .product-text {
-    margin: 0.5vh 0;
+    margin: 5px 0;
     font-weight: 400;
-    font-size: 1.1vw;
+    font-size: 18px;
 }
 
 /* CLASES AUXILIARES Y FOOTER */
@@ -313,17 +299,17 @@ form {
 footer{
     padding: 0px;
     margin: 0px;
-    height: 20vh;
+    height: 187px;
     background-color: #311B92;
     opacity: 0.8;
 }
 
 .button {
-    margin: 2vh auto 0 auto;
+    margin: 15px auto 0 auto;
     background-color: #311B92;
     color: white;
-    font-size: 1vw;
-    padding: 0.5vh 0.7vw;
+    font-size: 15px;
+    padding: 5px 10px;
     border: 1px solid black;
     border-radius: 5px;
     transition: all 0.2s;
@@ -331,5 +317,5 @@ footer{
 
 .button:hover {
     background-color: #006064;
-    font-size: 1.2vw;
+    font-size: 18px;
 }
