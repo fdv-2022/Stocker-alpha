@@ -37,7 +37,7 @@
 
             <div id="grid-inicio" class="menu">
                 <form id="username-form">
-                    <label id="username-input-label" for="username-input">Bienvenido, ingrese su nombre de usuario.   </label>
+                    <label id="username-input-label" for="username-input">Bienvenido, ingrese su nombre de usuario.</label>
 
                     <input type="text"
                     id="username-input" name="username-input"
@@ -66,6 +66,9 @@
                     </li>
                     <li class="menu-option">
                         <button id="menu-option4" class="menu-option-btn">Ingresar consumo</button>
+                    </li>
+                    <li class="menu-option">
+                        <button id="menu-option5" class="menu-option-btn">Consultar compra</button>
                     </li>
                 </ul>
             </div>
@@ -119,7 +122,7 @@
                     id="product-add-input"
                     name="product-add-input"
                     placeholder="1-100"/>
-                <p class="p2">Una vez seleccionada la cantidad clickee en el boton <span class="green">+</span> del producto que desea modificar.</p>
+                <p>Una vez seleccionada la cantidad clickee en el boton <span class="green">+</span> del producto que desea modificar.</p>
                 <button type="button" id="menu3-return" class="button">REGRESAR</button>
             </div>
             <!-- TERMINA TERCERA OPCION DEL MENU -->
@@ -131,8 +134,15 @@
                     id="product-remove-input"
                     name="product-remove-input"
                     placeholder="1-100"/>
-                <p class="p2">Una vez seleccionada la cantidad clickee en el boton <span class="red">-</span> del producto que desea modificar.</p>
+                <p>Una vez seleccionada la cantidad clickee en el boton <span class="red">-</span> del producto que desea modificar.</p>
                 <button type="button" id="menu4-return" class="button">REGRESAR</button>
+            </div>
+            <!-- TERMINA CUARTA OPCION DEL MENU -->
+
+            <!-- container QUINTA OPCION DEL MENU -->
+            <div id="grid-menu-5" class="menu hidden">
+                <p>Mostrando los productos de su stock que necesitan reposicion.</p>
+                <button type="button" id="menu5-return" class="button">REGRESAR</button>
             </div>
             <!-- TERMINA CUARTA OPCION DEL MENU -->
 
@@ -145,8 +155,11 @@
 
     <footer></footer>
 
-    <script src="main.js">
-    </script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="./modules/menuInicial.js"></script>
+    <script type="module" src="./modules/funcionesAuxiliares.js"></script>
+    <script type="module" src="./modules/transiciones.js"></script>
+    <script type="module" src="./modules/funcionalidadesMenu.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 

@@ -199,13 +199,17 @@ form {
     font-size: 1.3vw;
 }
 
-/* STYLE OPCION 3 - 4 MENU */
+/* STYLE OPCION 3 - 4 - 5MENU */
 
-#grid-menu-3, #grid-menu-4 {
+#grid-menu-3, #grid-menu-4, #grid-menu-5{
     text-align: center;
     padding: 8vh 3vw 4vh 4vw;
     font-size: 1.3vw;
     line-height: 5vh;
+}
+
+#grid-menu-5 {
+    font-size: 1.1vw;
 }
 
 /* STYLE PRODUCTOS;*/
