@@ -34,6 +34,9 @@ import { menuOpcion1, menuOpcion2, menuOpcion3,
     menuOpcion4, menuOpcion5, menuReturn1, menuReturn2, menuReturn3, menuReturn4, menuReturn5} from './modules/transiciones.js';
 import { agregarStock,loadInitialStock } from './modules/funcionalidadesStock.js';
 
+/* Modulos Export*/
+export {usernameForm,containerDeStock,username,form,inicio,menu,menu1,menu2,menu3,menu4,menu5};
+
 /* Render Inicial*/
 addEventListener('DOMContentLoaded', (event) => {renderInicial()})
 
@@ -63,6 +66,3 @@ btnReturnMenu4.addEventListener(`click`, menuReturn4);
 
 /* Event listeners de la quinta opcion del menu principal*/
 btnReturnMenu5.addEventListener(`click`, menuReturn5);
-
-/* Modulos Export*/
-export {usernameForm,containerDeStock,username,form,inicio,menu,menu1,menu2,menu3,menu4,menu5};

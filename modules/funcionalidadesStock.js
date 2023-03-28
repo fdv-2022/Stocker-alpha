@@ -29,7 +29,7 @@ const loadInitialStock = async (e) => { /* Realizo un fetch a mi JSON,lo guardo 
     stock = data;
 }
 
-/* OPCION 1 */
+/* OPCION 1 MENU */
 const agregarStock = (e) => { /*Funcion que permite agregar nuevos productos al stock y renderiza la modificacion.*/
     e.preventDefault();
 
@@ -42,11 +42,12 @@ const agregarStock = (e) => { /*Funcion que permite agregar nuevos productos al 
     /* Agrego el objeto que contiene la informacion de este producto al stock.*/
     stock.push(new objetoStock(form.children[1].value.toUpperCase(), form.children[3].value, form.children[5].value));
 
-    stock.length === 1 && renderArray(stock); /* Cuando el stock tiene mas de un producto se renderiza despues de ordenarse*/
+    stock.length === 1 && renderArray(stock);
 
-    if(stock.length >= 2){ /*Cuando exista mas de un producto es necesario ordenar el stock alfabeticamente y modificar el DOM*/
+    if(stock.length >= 2){ /*Cuando exista mas de un producto es necesario ordenar el stock alfabeticamente
+                            y modificar el DOM cada vez que se ingresa un nuevo producto*/
 
-        stock.sort((a,b) => {/* Ordenamos el array.*/
+        stock.sort((a,b) => {/* Ordeno el array.*/
             if(a.name > b.name){
                 return 1;
             }
@@ -67,7 +68,7 @@ const agregarStock = (e) => { /*Funcion que permite agregar nuevos productos al 
     form.reset();
 }
 
-/* OPCION 2 */
+/* OPCION 2 MENU */
 const productDelete = (event) => { /*Funcion que permite eliminar productos del stock y renderiza la modificacion.*/
     if(event.target.className !== 'remove-btn'){ /* Me aseguro que el click sea sobre el boton que quiero.*/
         return
@@ -100,7 +101,7 @@ const productDelete = (event) => { /*Funcion que permite eliminar productos del 
 
 }
 
-/* OPCION 3 */
+/* OPCION 3-4 MENU */
 const stockModify = (event) => { /* Funcion que realiza las modifcaciones de las unidades de los productos. */
     if(event.target.className !== 'modify-btn' && event.target.className !== 'modify-btn2'){ /*Chequeo que el click sea sobre el boton para modificar.*/
     return;
@@ -113,7 +114,7 @@ const stockModify = (event) => { /* Funcion que realiza las modifcaciones de las
 }
 
 const stockAdd = (event, value) => { /* Aumenta las unidades del producto en virtud del valor ingresado por el usuario */
-    if(document.getElementById('product-add-input').value == 0){ /*Valido el valor de la modifcacion.*/
+    if(document.getElementById('product-add-input').value == 0){
     redToast('Debe ingresar un numero distinto de 0')
     return;
     }
@@ -133,9 +134,8 @@ const stockAdd = (event, value) => { /* Aumenta las unidades del producto en vir
     localStorage.setItem("stockStorage", JSON.stringify(stock)); /* Guardo el localStorage */
 }
 
-/* OPCION 4 */
 const stockRemove = (event, value) => { /* Decrece las unidades del producto en virtud del valor ingresado por el usuario */
-    if(document.getElementById('product-remove-input').value == 0){ /*Valido el valor de la modifcacion.*/
+    if(document.getElementById('product-remove-input').value == 0){
     redToast('Debe ingresar un numero distinto de 0');
     return;
     }
@@ -162,7 +162,7 @@ const stockRemove = (event, value) => { /* Decrece las unidades del producto en 
 }
 
 /* OPCION 5 */
-const filterBuy = () => { /* Filtra el stock en razon de si el stock es menor al stock minimo y lo renderiza filtrado.*/
+const filterBuy = () => { /* Filtra todos los productos del stock en razon de si el stock es menor al stock minimo y lo renderiza filtrado.*/
     let arrayToBuy = stock.filter(element => element.stockMinimo > element.stock)
     containerDeStock.replaceChildren();
 
